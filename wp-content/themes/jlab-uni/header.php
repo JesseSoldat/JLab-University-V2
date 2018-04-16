@@ -7,23 +7,59 @@
  
   <?php wp_head(); ?>
   
-  <title>JLab Uni</title>
 </head>
 
 <body>
 <header class="site-header">
   <div class="container">
-    <h1 class="school-logo-text float-left"><a href="#"><strong>Fictional</strong> University</a></h1>
+    <h1 class="school-logo-text float-left">
+      <a href="<?php echo site_url(); ?>">
+        <strong>Fictional</strong> University
+      </a>
+    </h1>
     <span class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
     <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
     <div class="site-header__menu group">
       <nav class="main-navigation">
+        <!-- dynamic links NOT USING FOR NOW  -->
+         <?php
+            // wp_nav_menu(array(
+            //   'theme_location' => 'headerMenuLocation'
+            // ));
+          ?>
         <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Programs</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">Campuses</a></li>
-          <li><a href="#">Blog</a></li>
+          <li 
+          <?php 
+          //0 wp will look up current page's parent
+            if (is_page('about-us') or wp_get_post_parent_id(0) == 16) echo 'class="current-menu-item"'
+          ?>
+          >
+            <a href="<?php echo site_url('/about-us'); ?>">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="<?php ?>">
+              Programs
+            </a>
+          </li>
+          <li>
+            <a href="<?php ?>">
+              Events
+            </a>
+          </li>
+          <li>
+            <a href="<?php ?>">
+              Campuses
+            </a>
+          </li>
+          <li
+            <?php if (get_post_type() == 'post') echo 'class="current-menu-item"' ?>
+          >
+            <a href="<?php echo site_url('/blog'); ?>">
+              Blog
+            </a>
+          </li>
         </ul>
       </nav>
       <div class="site-header__util">
