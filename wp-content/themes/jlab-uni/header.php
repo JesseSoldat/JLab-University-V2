@@ -38,8 +38,8 @@
               About Us
             </a>
           </li>
-          <li>
-            <a href="<?php ?>">
+          <li <?php if(get_post_type() == 'program') echo 'class="current-menu-item"' ?>>
+            <a href="<?php echo get_post_type_archive_link('program'); ?>">
               Programs
             </a>
           </li>
