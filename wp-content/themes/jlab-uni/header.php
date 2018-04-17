@@ -43,8 +43,10 @@
               Programs
             </a>
           </li>
-          <li>
-            <a href="<?php ?>">
+          <li
+            <?php if (get_post_type() == 'event' or is_page('past-events')) echo 'class="current-menu-item"' ?>
+          >
+            <a href="<?php echo get_post_type_archive_link('event'); ?>">
               Events
             </a>
           </li>

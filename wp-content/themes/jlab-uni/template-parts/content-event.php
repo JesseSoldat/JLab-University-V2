@@ -2,10 +2,13 @@
   <a href="<?php the_permalink(); ?>" 
     class="event-summary__date t-center">
     <span class="event-summary__month">
-      Jan
+      <?php 
+        $eventDate = new DateTime(get_field('event_date'));
+        echo $eventDate->format('M');
+      ?>
     </span>
     <span class="event-summary__day">
-      14
+      <?php echo $eventDate->format('d'); ?>
     </span>
   </a>
   <div class="event-summary__content">
@@ -28,4 +31,3 @@
     </p>
   </div>
 </div>
-<br><br>
